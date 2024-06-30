@@ -28,7 +28,7 @@ export class AuthController {
 		return this.authService.tokens(dto.refreshToken)
 	}
 
-	@Post('access-token')
+	@Post('login')
 	@HttpCode(200)
 	@UsePipes(new ValidationPipe())
 	@Auth()
