@@ -1,7 +1,7 @@
 version: 0.2
 
 env:
- variables:
+  variables:
     DATABASE_URL: ${DATABASE_URL}
     JWT_SECRET: ${JWT_SECRET}
 
@@ -11,8 +11,8 @@ phases:
       nodejs: 18
     commands:
       - npm install --legacy-peer-deps
-    pre_build:
-      commands:
+  pre_build:
+    commands:
       - echo $DATABASE_URL
   build:
     commands:
