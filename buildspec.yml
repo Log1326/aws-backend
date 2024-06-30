@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     DATABASE_URL: $DATABASE_URL
-    JWT_SECRET: ${JWT_SECRET}
+    JWT_SECRET: $JWT_SECRET
 
 phases:
   install:
