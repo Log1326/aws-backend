@@ -2,8 +2,8 @@ version: 0.2
 
 env:
   variables:
-    DATABASE_URL: $DATABASE_URL
-    JWT_SECRET: $JWT_SECRET
+    DATABASE_URL: ${DATABASE_URL}
+    JWT_SECRET: ${JWT_SECRET}
 
 phases:
   install:
@@ -13,13 +13,16 @@ phases:
       - npm install --legacy-peer-deps
   pre_build:
     commands:
-      - echo $DATABASE_URL
+      - echo "DATABASE_URL is $DATABASE_URL"
+      - echo "JWT_SECRET is $JWT_SECRET"
   build:
     commands:
+      - echo "DATABASE_URL in build phase is $DATABASE_URL"
       - npx prisma generate
-      - echo "DATABASE_URL is $DATABASE_URL"
+      - echo "DATABASE_URL in build phase is $DATABASE_URL"  # Добавьте это, чтобы убедиться, что переменная окружения все еще доступна
       - npx prisma migrate deploy
       - npm run build
 artifacts:
   files:
     - '**/*'
+
