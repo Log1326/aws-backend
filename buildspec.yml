@@ -4,13 +4,16 @@ env:
  variables:
     DATABASE_URL: ${DATABASE_URL}
     JWT_SECRET: ${JWT_SECRET}
-    
+
 phases:
   install:
     runtime-versions:
       nodejs: 18
     commands:
       - npm install --legacy-peer-deps
+    pre_build:
+      commands:
+      - echo $DATABASE_URL
   build:
     commands:
       - npx prisma generate
