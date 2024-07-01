@@ -7,22 +7,15 @@ env:
 
 phases:
   install:
-    runtime-versions:
+    runtime-versions:  
       nodejs: 18
     commands:
       - npm install --legacy-peer-deps
-  pre_build:
-    commands:
-      - echo "DATABASE_URL is $DATABASE_URL"
-      - echo "JWT_SECRET is $JWT_SECRET"
   build:
     commands:
-      - echo "DATABASE_URL in build phase is $DATABASE_URL"
       - npx prisma generate
-      - echo "DATABASE_URL in build phase is $DATABASE_URL"  # Добавьте это, чтобы убедиться, что переменная окружения все еще доступна
       - npx prisma migrate deploy
       - npm run build
 artifacts:
   files:
     - '**/*'
-
