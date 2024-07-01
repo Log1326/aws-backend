@@ -1,4 +1,4 @@
-version: 0.2
+version: 0.3
 
 env:
   variables:
@@ -15,6 +15,7 @@ phases:
     commands:
       - npx prisma generate
       - npm run build
+
 artifacts:
   files:
     - '**/*'
