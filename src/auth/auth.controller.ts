@@ -10,7 +10,6 @@ import {
 import { AuthService } from './auth.service'
 import { AuthDto } from './dto/auth.dto'
 import { RefreshTokenDto } from './dto/refresh-token.dto'
-import { Auth } from './decorators/auth.decaorator'
 import { ApiBody, ApiOperation, ApiResponse } from '@nestjs/swagger'
 
 @Controller('auth')
@@ -31,7 +30,6 @@ export class AuthController {
 	@Post('login')
 	@HttpCode(200)
 	@UsePipes(new ValidationPipe())
-	@Auth()
 	async login(@Body() dto: AuthDto) {
 		return this.authService.login(dto)
 	}

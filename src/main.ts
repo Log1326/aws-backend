@@ -16,6 +16,5 @@ async function bootstrap() {
 	SwaggerModule.setup('swagger', app, document)
 	app.enableShutdownHooks()
 	await app.listen(4200)
-	console.log(`Application is running on: ${await app.getUrl()}/swagger`)
 }
 bootstrap()
